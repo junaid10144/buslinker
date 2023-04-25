@@ -8,6 +8,7 @@
     "gatsby": "^5.9.0",
     "gatsby-plugin-image": "^3.9.0",
     "gatsby-plugin-manifest": "^5.9.0",
+    "gatsby-plugin-postcss": "^6.9.0",
     "gatsby-plugin-sharp": "^5.9.0",
     "gatsby-source-filesystem": "^5.9.0",
     "gatsby-transformer-sharp": "^5.9.0",
@@ -15,7 +16,10 @@
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
-    "prettier": "^2.8.7"
+    "autoprefixer": "^10.4.14",
+    "postcss": "^8.4.23",
+    "prettier": "^2.8.7",
+    "tailwindcss": "^3.3.1"
   },
   "keywords": [
     "gatsby"
@@ -23,7 +27,7 @@
   "license": "0BSD",
   "scripts": {
     "build": "gatsby build",
-    "develop": "gatsby develop",
+    "dev": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md,css}\"",
     "start": "gatsby develop",
     "serve": "gatsby serve",
