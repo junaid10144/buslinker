@@ -2,7 +2,7 @@ import React from 'react'
 import { Layout, Seo } from '../components'
 import tw from 'tailwind-styled-components'
 
-const Title = tw.span`text-5xl text-green-500 uppercase`
+const Title = tw.span`text-5xl text-green-500 uppercase font-bold`
 const Caption = tw.span`text-3xl text-gray-900 uppercase font-bold`
 const Description = tw.h1`text-2xl text-gray-500`
 const MainImage = tw.img`rounded-3xl shadow-lg`
@@ -28,7 +28,7 @@ const heroFeatures = [
 const HeroFeatureItem = ({ item }) => {
   return (
     <div>
-      <h5>{item.title}</h5>
+      <h5 className="font-bold">{item.title}</h5>
       <p>{item.description}</p>
     </div>
   )
@@ -59,14 +59,19 @@ const LogoTitle = () => (
 
 const TextSection = () => {
   return (
-    <div className="space-y-6">
-      <LogoTitle />
-      <Description>
-        This is a private bus company that takes you from point A to point B
-        within Punjab
-      </Description>
-      <Button> Create Account</Button>
-      <HeroFeatures />
+    <div>
+      <div className="space-y-6">
+        <LogoTitle />
+        <Description>
+          This is a private bus company that takes you from point A to point B
+          within Punjab
+        </Description>
+        <Button> Create Account</Button>
+      </div>
+
+      <div className="mt-32">
+        <HeroFeatures />
+      </div>
     </div>
   )
 }
