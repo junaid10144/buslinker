@@ -10,6 +10,7 @@ const Section = tw.div`max-w-screen-2xl mx-auto relative`
 const Seperator = tw.div`w-10 h-1 bg-blue-500`
 const Button = tw.button`bg-green-500 px-5 py-3 rounded-xl text-white font-bold uppercase`
 const Gradient = tw.div`absolute inset-0 bg-gradient-radial-hero`
+const BookingFormDummyDiv = tw.div`bg-white w-2/3 h-24 rounded-3xl shadow-xl`
 
 const heroFeatures = [
   {
@@ -84,12 +85,19 @@ const GradientBackground = () => {
   )
 }
 
+const BookingForm = () => (
+  <div className="mt-16 flex justify-center">
+    <BookingFormDummyDiv />
+  </div>
+)
+
 const IndexPage = () => {
   return (
     <Layout>
       <Seo title="Home" />
       <GradientBackground />
       <Section>
+        <BookingForm />
         <div className="mt-16 flex justify-between items-center gap-x-8">
           <TextSection />
           <div>
