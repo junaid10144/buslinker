@@ -1,0 +1,10 @@
+{
+  "name": "@bus/root",
+  "private": true,
+  "workspaces": [
+    "apps/*"
+  ],
+  "devDependencies": {
+    "lerna": "^6.6.1"
+  }
+}
