@@ -1,88 +1,48 @@
 import React from 'react'
 import tw from 'tailwind-styled-components'
-import {Section} from "components"
+import { Section, Text, Button } from 'components'
+import { HeroFeatures } from './hero-features'
 
-const Title = tw.span`text-5xl text-green-500 uppercase font-bold font-title`
-const Caption = tw.span`text-3xl text-gray-900 uppercase font-bold font-title`
-const Description = tw.h1`text-2xl text-gray-500`
 const MainImage = tw.img`rounded-3xl shadow-lg`
 const Seperator = tw.div`w-10 h-1 bg-blue-500`
-const Button = tw.button`bg-green-500 px-5 py-3 rounded-xl text-white font-bold uppercase`
 const Gradient = tw.div`absolute inset-0 bg-gradient-radial-hero`
 const BookingFormDummyDiv = tw.div`bg-white w-2/3 h-24 rounded-3xl shadow-xl`
-
-const heroFeatures = [
-  {
-    title: 'Book Easy',
-    description: 'Tickets with QR code',
-  },
-  {
-    title: 'Discount',
-    description: 'For those who create an account',
-  },
-  {
-    title: '30+',
-    description: 'Cities around the U.S.',
-  },
-]
-const HeroFeatureItem = ({ item }) => {
-  return (
-    <div>
-      <h5 className="font-bold">{item.title}</h5>
-      <p>{item.description}</p>
-    </div>
-  )
-}
-
-const HeroFeatures = () => {
-  return (
-    <div className="flex gap-4">
-      {heroFeatures.map((item) => (
-        <HeroFeatureItem item={item} />
-      ))}
-    </div>
-  )
-}
 
 const LogoTitle = () => (
   <div>
     <div>
-      <Caption>The private</Caption>
-      <div className="mt-1">
-        <Title className="text-blue-500">Bus</Title>
-        <Title className="ml-3 text-green-500">Company</Title>
-      </div>
+      <Text variant="h5">The private</Text>
+      <Text variant="h3" className="mt-1">
+        <span className="text-blue-500">Bus</span>
+        <span className="ml-3 text-green-500">Company</span>
+      </Text>
     </div>
     <Seperator className="mt-4" />
   </div>
 )
 
-const TextSection = () => {
-  return (
-    <div>
-      <div className="space-y-6">
-        <LogoTitle />
-        <Description>
-          This is a private bus company that takes you from point A to point B
-          within Punjab
-        </Description>
-        <Button> Create Account</Button>
-      </div>
-
-      <div className="mt-32">
-        <HeroFeatures />
-      </div>
+const TextSection = () => (
+  <div>
+    <div className="space-y-6">
+      <LogoTitle />
+      <Text variant="bodyBig">
+        This is a private bus company that takes you from point A to point B
+        within Punjab
+      </Text>
+      <Button>Create Account</Button>
     </div>
-  )
-}
 
-const GradientBackground = () => {
-  return (
-    <div className="absolute left-0 right-0 top-0 h-[900px]">
-      <Gradient />
+    <div className="mt-32">
+      <HeroFeatures />
     </div>
-  )
-}
+  </div>
+)
+
+const GradientBackground = () => (
+  <div className="absolute left-0 right-0 top-0 h-[900px]">
+    <Gradient />
+  </div>
+)
 
 const BookingForm = () => (
   <div className="mt-16 flex justify-center">
@@ -90,17 +50,22 @@ const BookingForm = () => (
   </div>
 )
 
+const Container = tw.div`mt-16 flex justify-between items-center gap-x-8`
+const Column = tw.div`w-1/2`
+
 export const HeroSection = () => (
   <>
     <GradientBackground />
-    <Section className='h-[900px]'>
+    <Section className="h-[900px]">
       <BookingForm />
-      <div className="mt-16 flex justify-between items-center gap-x-8">
-        <TextSection />
-        <div>
+      <Container>
+        <Column>
+          <TextSection />
+        </Column>
+        <Column>
           <MainImage src="https://source.unsplash.com/T5jzpRTVF1U" alt="Bus" />
-        </div>
-      </div>
+        </Column>
+      </Container>
     </Section>
   </>
 )
