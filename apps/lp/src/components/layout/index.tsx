@@ -4,14 +4,16 @@ import { Footer } from './footer'
 import { Navbar } from './navbar'
 
 const Container = tw.div``
-export * from './seo'
+const ContentContainer = tw.main`pt-14`
 
 export const Layout = ({ children }) => {
   return (
     <Container>
       <Navbar />
-      <main>{children}</main>
+      <ContentContainer>{children}</ContentContainer>
       <Footer />
     </Container>
   )
 }
+
+export * from './seo'
