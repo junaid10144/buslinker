@@ -59,7 +59,7 @@ const ReviewItem = ({ item }: { item: ReviewType }) => {
   const quotedContent = `"${item.content}"`
   return (
     <Card>
-      <CardContent className="">
+      <CardContent>
         <div className="flex items-start gap-x-4">
           <ImageContainer>
             <img src={item.imageUrl} alt={item.name} />
