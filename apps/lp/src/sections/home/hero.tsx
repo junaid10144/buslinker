@@ -39,7 +39,7 @@ const TextSection = () => (
 )
 
 const GradientBackground = () => (
-  <div className="absolute left-0 right-0 top-0 h-[900px]">
+  <div className="absolute left-0 right-0 top-0 h-[900px] z-0">
     <Gradient />
   </div>
 )
