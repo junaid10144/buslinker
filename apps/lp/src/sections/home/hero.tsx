@@ -33,49 +33,40 @@ export const LogoTitle = ({ inView }) => (
   </div>
 )
 
-const TextSection = () => (
-  <InView>
-    {({ inView, ref }) => (
-      <div ref={ref}>
-        <div className="space-y-6">
-          <LogoTitle inView={inView} />
-          <DescriptionText
-            variant="bodyBig"
-            className={`${inView ? '' : 'opacity-0'}`}
-          >
-            This is a private bus company that takes you from point A to point B
-            within Pakistan
-          </DescriptionText>
-          <ButtonContainer className={`${inView ? '' : 'opacity-0'}`}>
-            <Button>Create Account</Button>
-          </ButtonContainer>
-        </div>
+const TextSection = ({ inView }: any) => (
+  <div>
+    <div className="space-y-6">
+      <LogoTitle inView={inView} />
+      <DescriptionText
+        variant="bodyBig"
+        className={`${inView ? '' : 'opacity-0'}`}
+      >
+        This is a private bus company that takes you from point A to point B
+        within Pakistan
+      </DescriptionText>
+      <ButtonContainer className={`${inView ? '' : 'opacity-0'}`}>
+        <Button>Create Account</Button>
+      </ButtonContainer>
+    </div>
 
-        <div className="mt-32">
-          <HeroFeatures inView={inView} />
-        </div>
-      </div>
-    )}
-  </InView>
-)
-
-const GradientBackground = () => (
-  <div className="absolute left-0 right-0 top-0 h-[900px] z-0">
-    <Gradient />
+    <div className="mt-32">
+      <HeroFeatures inView={inView} />
+    </div>
   </div>
 )
 
-const WrappedBookingForm = () => (
-  <InView>
-    {({ inView, ref }) => (
-      <BookingFormWrapper
-        ref={ref}
-        className={`${inView ? '' : 'translate-y-5 opacity-0'}`}
-      >
-        <BookingForm />
-      </BookingFormWrapper>
-    )}
-  </InView>
+const GradientBackgroundContainer = tw.div`absolute left-0 right-0 top-0 h-[900px] z-0 transition duration-700`
+
+const GradientBackground = ({ inView }) => (
+  <GradientBackgroundContainer className={`${inView ? '' : 'opacity-0'}`}>
+    <Gradient />
+  </GradientBackgroundContainer>
+)
+
+const WrappedBookingForm = ({ inView }: { inView?: boolean }) => (
+  <BookingFormWrapper className={`${inView ? '' : 'translate-y-5 opacity-0'}`}>
+    <BookingForm />
+  </BookingFormWrapper>
 )
 
 const BookingFormWrapper = tw.div`transform transition duration-1000`
@@ -83,35 +74,35 @@ const BookingFormWrapper = tw.div`transform transition duration-1000`
 const ImageContainer = tw.div`rounded-3xl shadow-lg overflow-hidden transition ease-in-out delay-500 duration-[2000ms]`
 const MainImage = tw.img`w-full h-full object-cover transition transform ease-out duration-[14s]`
 
-const HeroImage = () => (
-  <InView>
-    {({ inView, ref }) => (
-      <ImageContainer ref={ref} className={`${inView ? '' : 'opacity-0'}`}>
-        <MainImage
-          className={`${inView ? '' : 'scale-[1.15] rotate-2 translate-y-4'}`}
-          src="https://source.unsplash.com/T5jzpRTVF1U"
-          alt="Bus"
-        />
-      </ImageContainer>
-    )}
-  </InView>
+const HeroImage = ({ inView }) => (
+  <ImageContainer className={`${inView ? '' : 'opacity-0'}`}>
+    <MainImage
+      className={`${inView ? '' : 'scale-[1.15] rotate-2 translate-y-4'}`}
+      src="https://source.unsplash.com/T5jzpRTVF1U"
+      alt="Bus"
+    />
+  </ImageContainer>
 )
 
 export const HeroSection = () => (
-  <>
-    <GradientBackground />
-    <Section className="h-[900px]">
-      <div className="flex justify-center mt-16">
-        <WrappedBookingForm />
+  <InView>
+    {({ inView, ref }) => (
+      <div ref={ref}>
+        <GradientBackground inView={inView} />
+        <Section className="h-[900px]">
+          <div className="flex justify-center mt-16">
+            <WrappedBookingForm inView={inView} />
+          </div>
+          <Container>
+            <Column>
+              <TextSection inView={inView} />
+            </Column>
+            <Column>
+              <HeroImage inView={inView} />
+            </Column>
+          </Container>
+        </Section>
       </div>
-      <Container>
-        <Column>
-          <TextSection />
-        </Column>
-        <Column>
-          <HeroImage />
-        </Column>
-      </Container>
-    </Section>
-  </>
+    )}
+  </InView>
 )
