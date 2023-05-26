@@ -5,8 +5,9 @@ import { Link } from 'gatsby'
 import { FaBus } from '@react-icons/all-files/fa/FaBus'
 import { WiMoonAltWaningCrescent6 } from '@react-icons/all-files/wi/WiMoonAltWaningCrescent6'
 import { WiDaySunny } from '@react-icons/all-files/wi/WiDaySunny'
+import { InView } from 'react-intersection-observer'
 
-const Container = tw.div`fixed left-0 right-0 top-0 z-20 `
+const Container = tw.div`fixed left-0 right-0 top-0 z-20 transition duration-[2000ms] delay-500`
 const Box = tw.div`bg-black bg-opacity-50 w-full backdrop-filter backdrop-blur`
 const WidthContainer = tw.div`max-w-screen-2xl mx-auto flex justify-between`
 const NavItemsContainer = tw.div`flex items-center`
@@ -77,33 +78,37 @@ const DarkModeSwitch = () => {
 
 export const Navbar = () => {
   return (
-    <Container>
-      <Box>
-        <WidthContainer>
-          <NavItemsContainer>
-            <div className="flex items-center justify-center">
-              <Link to="/">
-                <div className="px-2">
-                  <BusLogo className="w-6 h-6" />
+    <InView>
+      {({ inView, ref }) => (
+        <Container ref={ref} className={`${inView} ? "":"opacity-0"`}>
+          <Box>
+            <WidthContainer>
+              <NavItemsContainer>
+                <div className="flex items-center justify-center">
+                  <Link to="/">
+                    <div className="px-2">
+                      <BusLogo className="w-6 h-6" />
+                    </div>
+                  </Link>
                 </div>
-              </Link>
-            </div>
 
-            {navItems.left.map((item) => (
-              <NavItem key={item.title} item={item} />
-            ))}
-          </NavItemsContainer>
-          <NavItemsContainer>
-            <div className="flex items-center justify-center">
-              <DarkModeSwitch />
-            </div>
+                {navItems.left.map((item) => (
+                  <NavItem key={item.title} item={item} />
+                ))}
+              </NavItemsContainer>
+              <NavItemsContainer>
+                <div className="flex items-center justify-center">
+                  <DarkModeSwitch />
+                </div>
 
-            {navItems.right.map((item) => (
-              <NavItem key={item.title} item={item} />
-            ))}
-          </NavItemsContainer>
-        </WidthContainer>
-      </Box>
-    </Container>
+                {navItems.right.map((item) => (
+                  <NavItem key={item.title} item={item} />
+                ))}
+              </NavItemsContainer>
+            </WidthContainer>
+          </Box>
+        </Container>
+      )}
+    </InView>
   )
 }
