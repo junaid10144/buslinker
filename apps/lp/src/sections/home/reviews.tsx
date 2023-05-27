@@ -3,6 +3,7 @@ import React from 'react'
 import tw from 'tailwind-styled-components'
 import { BsStarFill } from '@react-icons/all-files/bs/BsStarFill'
 import { IoMdQuote } from '@react-icons/all-files/io/IoMdQuote'
+import { InView } from 'react-intersection-observer'
 
 const CardContainer = tw.div`flex justify-center gap-4 mt-14`
 const ImageContainer = tw.div`rounded-full overflow-hidden w-14 h-14`
@@ -81,17 +82,32 @@ const ReviewItem = ({ item }: { item: ReviewType }) => {
   )
 }
 
-export const ReviewsSection = () => {
-  return (
-    <SectionAndOffset>
-      <Text variant="h4" className="text-center uppercase">
-        What Our Clients Say
-      </Text>
-      <CardContainer>
-        {reviews.map((item) => (
-          <ReviewItem key={item.name} item={item} />
-        ))}
-      </CardContainer>
-    </SectionAndOffset>
-  )
-}
+export const ReviewsSection = () => (
+  <InView>
+    {({ ref, inView }) => (
+      <SectionAndOffset ref={ref}>
+        <Text
+          variant="h4"
+          className={`text-center uppercase transition delay-150 duration-1000 ${
+            inView ? '' : 'opacity-0'
+          }`}
+        >
+          What Our Clients Say
+        </Text>
+        <CardContainer>
+          {reviews.map((item, index) => (
+            <div
+              key={item.name}
+              className={`transition duration-1000 ${
+                inView ? '' : 'opacity-0'
+              }`}
+              style={{ transitionDelay: 300 + 150 * index + 'ms' }}
+            >
+              <ReviewItem item={item} />
+            </div>
+          ))}
+        </CardContainer>
+      </SectionAndOffset>
+    )}
+  </InView>
+)
