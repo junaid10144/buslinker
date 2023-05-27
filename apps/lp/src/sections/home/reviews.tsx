@@ -70,10 +70,14 @@ const ReviewItem = ({ item }: { item: ReviewType }) => {
               <Text variant="bodyBig">{item.name}</Text>
               <Stars item={item} />
             </div>
-            <Text variant="subtitle">{item.timeAgo}</Text>
+            <Text color="gray-light" variant="subtitle">
+              {item.timeAgo}
+            </Text>
           </div>
         </div>
-        <Text className="mt-4 italic">{quotedContent}</Text>
+        <Text color="gray-light" className="mt-4 italic">
+          {quotedContent}
+        </Text>
         <div className="absolute right-4 top-4">
           <IoMdQuote className="fill-green-500" />
         </div>

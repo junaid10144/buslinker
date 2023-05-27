@@ -14,7 +14,7 @@ export const BottomHeroSection = () => (
             inView ? '' : 'opacity-0'
           }`}
         >
-          <Text>
+          <Text color="gray-light">
             {
               'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt eveniet soluta error distinctio quibusdam rerum ab unde nihil, corporis aspernatur veniam fugiat, corrupti voluptate totam illo, provident ipsa? Nulla, dolorem.'
             }

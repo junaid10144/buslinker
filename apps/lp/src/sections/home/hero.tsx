@@ -42,6 +42,7 @@ const TextSection = ({ inView }: any) => (
       <LogoTitle inView={inView} />
       <DescriptionText
         variant="bodyBig"
+        color="gray-light"
         className={`${inView ? '' : 'opacity-0'}`}
       >
         This is a private bus company that takes you from point A to point B
