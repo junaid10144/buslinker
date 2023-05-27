@@ -8,8 +8,8 @@ const ImageContainer = tw.div`rounded-3xl overflow-hidden h-[600px] shadow-xl tr
 const Image = tw.img`w-full h-full object-cover transition transform duration-[1200ms] ease-out`
 const TopPartContainer = tw.div`transition duration-1000 delay-150`
 
-const Container = tw.div`flex justify-between mt-20 gap-12 ${({ direction }) =>
-  direction === 'left' ? 'flex-row' : 'flex-row-reverse'}`
+const Container = tw.div`flex justify-between mt-20 gap-12 ${({ $direction }) =>
+  $direction === 'left' ? 'flex-row' : 'flex-row-reverse'}`
 
 const TopPart = ({ section }) => (
   <InView>
@@ -26,10 +26,14 @@ const TopPart = ({ section }) => (
   </InView>
 )
 
-const FeatureItem = ({ feature }) => (
+const FeatureItem = ({ feature, color }) => (
   <div className="flex space-x-4">
     <div>
-      {<feature.icon className="w-8 h-8 dark:text-white text-gray-800" />}
+      <feature.icon
+        className={`w-8 h-8 ${
+          color === 'green' ? 'text-green-500' : 'text-blue-500'
+        }`}
+      />
     </div>
     <div>
       <Text variant="button">{feature.title}</Text>
@@ -43,7 +47,7 @@ const FeatureItem = ({ feature }) => (
 const Content = ({ section }) => (
   <InView>
     {({ ref, inView }) => (
-      <Container ref={ref} direction={section.direction}>
+      <Container ref={ref} $direction={section.direction}>
         <Column>
           <ImageContainer className={`${inView ? '' : 'opacity-0'}`}>
             <Image
@@ -71,7 +75,10 @@ const Content = ({ section }) => (
                 }`}
                 style={{ transitionDelay: 700 + index * 250 + 'ms' }}
               >
-                <FeatureItem feature={feature} />
+                <FeatureItem
+                  feature={feature}
+                  color={index % 2 ? 'blue' : 'green'}
+                />
               </div>
             ))}
           </div>
