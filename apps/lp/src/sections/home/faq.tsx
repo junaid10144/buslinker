@@ -2,7 +2,8 @@ import { Card, CardContent, SectionAndOffset, Text } from 'components'
 import React, { useRef, useState } from 'react'
 import tw from 'tailwind-styled-components'
 import { FaChevronCircleDown } from '@react-icons/all-files/fa/FaChevronCircleDown'
-const CardContainer = tw.div`space-y-4 mt-14`
+import { InView } from 'react-intersection-observer'
+const CardsContainer = tw.div`space-y-4 mt-14`
 
 type FaqItemType = {
   title: string
@@ -72,17 +73,32 @@ const FaqItem = ({ item }: { item: ReviewType }) => {
   )
 }
 
-export const FaqSection = () => {
-  return (
-    <SectionAndOffset>
-      <Text variant="h4" className="text-center uppercase">
-        Frequently Asked Questions
-      </Text>
-      <CardContainer>
-        {faqItems.map((item) => (
-          <FaqItem key={item.title} item={item} />
-        ))}
-      </CardContainer>
-    </SectionAndOffset>
-  )
-}
+export const FaqSection = () => (
+  <InView>
+    {({ inView, ref }) => (
+      <SectionAndOffset ref={ref}>
+        <Text
+          variant="h4"
+          className={`text-center uppercase transition duration-1000 delay-150 ${
+            inView ? '' : 'opacity-0'
+          }`}
+        >
+          Frequently Asked Questions
+        </Text>
+        <CardsContainer>
+          {faqItems.map((item, index) => (
+            <div
+              key={item.title}
+              className={`transition duration-1000 ${
+                inView ? '' : 'opacity-0 translate-y-8'
+              }`}
+              style={{ transitionDelay: 300 + index * 150 + 'ms' }}
+            >
+              <FaqItem item={item} />
+            </div>
+          ))}
+        </CardsContainer>
+      </SectionAndOffset>
+    )}
+  </InView>
+)

@@ -99,7 +99,7 @@ export const ReviewsSection = () => (
             <div
               key={item.name}
               className={`transition duration-1000 ${
-                inView ? '' : 'opacity-0'
+                inView ? '' : 'opacity-0 translate-y-8'
               }`}
               style={{ transitionDelay: 300 + 150 * index + 'ms' }}
             >
