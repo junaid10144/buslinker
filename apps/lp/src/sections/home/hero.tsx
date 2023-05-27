@@ -108,7 +108,7 @@ export const HeroSection = () => (
     {({ inView, ref }) => (
       <div ref={ref}>
         <GradientBackground inView={inView} />
-        <Section className="h-[900px]">
+        <Section className="h-[740px]">
           <div className="flex justify-center mt-16">
             <WrappedBookingForm inView={inView} />
           </div>
