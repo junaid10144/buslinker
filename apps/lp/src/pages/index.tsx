@@ -6,17 +6,17 @@ import {
   HeroSection,
   MidSection,
   ReviewsSection,
+  StatsSection,
 } from 'sections'
 import { GiSlashedShield } from '@react-icons/all-files/gi/GiSlashedShield'
 import { GiAlarmClock } from '@react-icons/all-files/gi/GiAlarmClock'
 import { GiMoneyStack } from '@react-icons/all-files/gi/GiMoneyStack'
 import { BiNetworkChart } from '@react-icons/all-files/bi/BiNetworkChart'
 import { FaLeaf } from '@react-icons/all-files/fa/FaLeaf'
-import { StatsSection } from 'sections'
 
 const sections = {
   features: {
-    title: 'A Better way to Travel',
+    title: 'A Better Way To Travel',
     description:
       'Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium at hic libero, maxime consequuntur dolor suscipit vitae aperiam. Magnam ipsum numquam perferendis, aut debitis omnis nihil! Veritatis quisquam nam atque!',
     featuresTitle: 'Features',
@@ -57,7 +57,7 @@ const sections = {
     ],
   },
   features2: {
-    title: 'A Better way to Travel',
+    title: 'A Better Way To Travel',
     description:
       'Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium at hic libero, maxime consequuntur dolor suscipit vitae aperiam. Magnam ipsum numquam perferendis, aut debitis omnis nihil! Veritatis quisquam nam atque!',
     featuresTitle: 'Features',
@@ -98,19 +98,17 @@ const sections = {
   },
 }
 
-const IndexPage = () => {
-  return (
-    <Layout>
-      <Seo title="Home" />
-      <HeroSection />
-      <MidSection section={sections.features} />
-      <MidSection section={sections.features2} />
-      <StatsSection />
-      <ReviewsSection />
-      <FaqSection />
-      <BottomHeroSection />
-    </Layout>
-  )
-}
+const IndexPage = () => (
+  <Layout>
+    <Seo title="Home" />
+    <HeroSection />
+    <MidSection section={sections.features} />
+    <MidSection section={sections.features2} />
+    <StatsSection />
+    <ReviewsSection />
+    <FaqSection />
+    <BottomHeroSection />
+  </Layout>
+)
 
 export default IndexPage

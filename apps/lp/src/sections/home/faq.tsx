@@ -1,7 +1,7 @@
 import { Card, CardContent, SectionAndOffset, Text } from 'components'
 import React, { useRef, useState } from 'react'
 import tw from 'tailwind-styled-components'
-import { FaChevronCircleDown } from '@react-icons/all-files/fa/FaChevronCircleDown'
+import { FaChevronDown } from '@react-icons/all-files/fa/FaChevronDown'
 import { InView } from 'react-intersection-observer'
 const CardsContainer = tw.div`space-y-4 mt-14`
 
@@ -33,7 +33,7 @@ const faqItems: FaqItemType[] = [
   },
 ]
 
-const FaqItem = ({ item }: { item: ReviewType }) => {
+const FaqItem = ({ item }: { item: FaqItemType }) => {
   const contentRef = useRef<HTMLDivElement>(null)
   const [isOpen, setIsOpen] = useState(false)
 
@@ -49,7 +49,7 @@ const FaqItem = ({ item }: { item: ReviewType }) => {
           <Text variant="bodyBig" className="font-bold">
             {item.title}
           </Text>
-          <FaChevronCircleDown
+          <FaChevronDown
             className={`w-4 h-4 transition ${isOpen ? '-rotate-180' : ''} `}
           />
         </div>
@@ -92,7 +92,7 @@ export const FaqSection = () => (
               className={`transition duration-1000 ${
                 inView ? '' : 'opacity-0 translate-y-8'
               }`}
-              style={{ transitionDelay: 300 + index * 150 + 'ms' }}
+              style={{ transitionDelay: 300 + 150 * index + 'ms' }}
             >
               <FaqItem item={item} />
             </div>

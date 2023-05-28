@@ -25,7 +25,7 @@ export const LogoTitle = ({ inView }) => (
   <div>
     <div>
       <SmallHeadingText variant="h5" className={`${inView ? '' : 'opacity-0'}`}>
-        The private
+        The Private
       </SmallHeadingText>
       <BigHeadingText variant="h3" className={`${inView ? '' : 'opacity-0'}`}>
         <span className="text-blue-500">Bus</span>
@@ -64,7 +64,7 @@ const GradientBackground = ({ inView }) => (
     <Gradient />
     <GradientDark />
     <Glow
-      className={`top-[10%] left-[-10%] w-[1000px] h-[700px]  ${
+      className={`top-[10%] left-[-10%] w-[1000px] h-[700px] ${
         inView ? '' : 'opacity-0'
       }`}
       style={{
@@ -72,7 +72,7 @@ const GradientBackground = ({ inView }) => (
       }}
     />
     <Glow
-      className={`top-[-20%] left-[30%] w-[1000px] h-[700px]  ${
+      className={`top-[-20%] left-[30%] w-[1000px] h-[700px] ${
         inView ? '' : 'opacity-0'
       }`}
       style={{
@@ -93,7 +93,7 @@ const BookingFormWrapper = tw.div`transform transition duration-1000`
 const ImageContainer = tw.div`rounded-3xl shadow-lg overflow-hidden transition ease-in-out delay-500 duration-[2000ms]`
 const MainImage = tw.img`w-full h-full object-cover transition transform ease-out duration-[14s]`
 
-const HeroImage = ({ inView }) => (
+const HeroImage = ({ inView }: any) => (
   <ImageContainer className={`${inView ? '' : 'opacity-0'}`}>
     <MainImage
       className={`${inView ? '' : 'scale-[1.15] rotate-2 translate-y-4'}`}

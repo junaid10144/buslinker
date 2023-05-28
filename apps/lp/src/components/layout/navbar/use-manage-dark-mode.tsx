@@ -1,14 +1,14 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
 
-const isWindowsDefined = typeof window !== 'undefined'
+const isWindowDefined = typeof window !== 'undefined'
 
 export const useManageDarkMode = () => {
   const [isDarkMode, setIsDarkMode] = useState<boolean>(() => {
-    if (!isWindowsDefined) return false
+    if (!isWindowDefined) return false
     return (
       localStorage.getItem('darkMode') === 'true' ||
       (!('darkMode' in localStorage) &&
-        window.matchMedia('(prefers-color-scheme:dark)').matches)
+        window.matchMedia('(prefers-color-scheme: dark)').matches)
       // On page load or when changing themes, best to add inline in `head` to avoid FOUC
     )
   })

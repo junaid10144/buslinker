@@ -5,11 +5,12 @@ import { InView } from 'react-intersection-observer'
 
 const Column = tw.div`w-1/2`
 const ImageContainer = tw.div`rounded-3xl overflow-hidden h-[600px] shadow-xl transition ease-in-out duration-[2000ms] delay-1000`
-const Image = tw.img`w-full h-full object-cover transition transform duration-[1200ms] ease-out`
+const Image = tw.img`w-full h-full object-cover transition transform duration-[12000ms] ease-out`
 const TopPartContainer = tw.div`transition duration-1000 delay-150`
 
-const Container = tw.div`flex justify-between mt-20 gap-12 ${({ $direction }) =>
-  $direction === 'left' ? 'flex-row' : 'flex-row-reverse'}`
+const Container = tw.div`flex justify-between mt-20 gap-12
+${({ $direction }) => ($direction === 'left' ? 'flex-row' : 'flex-row-reverse')}
+`
 
 const TopPart = ({ section }) => (
   <InView>
@@ -77,7 +78,7 @@ const Content = ({ section }) => (
                 className={`transition transform duration-1000 ${
                   inView ? '' : 'opacity-0 translate-y-8'
                 }`}
-                style={{ transitionDelay: 700 + index * 250 + 'ms' }}
+                style={{ transitionDelay: 500 + index * 250 + 'ms' }}
               >
                 <FeatureItem
                   feature={feature}

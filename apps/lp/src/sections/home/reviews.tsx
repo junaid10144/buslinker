@@ -5,7 +5,7 @@ import { BsStarFill } from '@react-icons/all-files/bs/BsStarFill'
 import { IoMdQuote } from '@react-icons/all-files/io/IoMdQuote'
 import { InView } from 'react-intersection-observer'
 
-const CardContainer = tw.div`flex justify-center gap-4 mt-14`
+const CardsContainer = tw.div`flex justify-center gap-4 mt-14`
 const ImageContainer = tw.div`rounded-full overflow-hidden w-14 h-14`
 const Star = tw(BsStarFill)`w-4 h-4 text-yellow-500`
 
@@ -98,7 +98,7 @@ export const ReviewsSection = () => (
         >
           What Our Clients Say
         </Text>
-        <CardContainer>
+        <CardsContainer>
           {reviews.map((item, index) => (
             <div
               key={item.name}
@@ -110,7 +110,7 @@ export const ReviewsSection = () => (
               <ReviewItem item={item} />
             </div>
           ))}
-        </CardContainer>
+        </CardsContainer>
       </SectionAndOffset>
     )}
   </InView>
