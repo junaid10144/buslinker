@@ -1,4 +1,13 @@
-import { Button, Card, CardContent, Section, Text } from 'components'
+import {
+  Button,
+  Card,
+  CardContent,
+  Section,
+  Text,
+  CardHeading,
+  CardTitle,
+  Check,
+} from 'components'
 import moment from 'moment'
 import React from 'react'
 import { TripType, trips } from './data'
@@ -100,11 +109,59 @@ const Trips = () => (
   </div>
 )
 
+const FilterItem = ({ item, sectionKey }) => (
+  <Check
+    id={`filter-item-${sectionKey}-${item.name}`}
+    label={item.name}
+    checked={item.value}
+  />
+)
+
+const FilterSection = ({ section, sectionKey }) => (
+  <div>
+    <Text variant="body">{section.name}</Text>
+    <div className="mt-2 space-y-1">
+      {section.items.map((item) => (
+        <FilterItem key={item.name} item={item} sectionKey={sectionKey} />
+      ))}
+    </div>
+  </div>
+)
+
+const section = {
+  name: 'Bus',
+  items: [
+    {
+      name: 'Standard Bus',
+      value: false,
+    },
+    {
+      name: 'VIP Bus',
+      value: true,
+    },
+  ],
+}
+
+const Sidebar = () => (
+  <Card className="sticky top-32">
+    <CardHeading>
+      <CardTitle>Filter by</CardTitle>
+    </CardHeading>
+    <CardContent>
+      <div className="space-y-2">
+        <FilterSection sectionKey="bus" section={section} />
+      </div>
+    </CardContent>
+  </Card>
+)
+
 export const SearchSection = () => {
   return (
     <Section className="mt-20">
       <div className="flex justify-between gap-x-4">
-        <div className="w-1/4">{/*Sidebar*/}</div>
+        <div className="w-1/4">
+          <Sidebar />
+        </div>
         <div className="flex flex-col flex-1">
           <Header />
           <Trips />
