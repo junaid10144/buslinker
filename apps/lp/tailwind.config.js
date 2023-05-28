@@ -1,8 +1,22 @@
 /** @type {import('tailwindcss').Config} */
+const colors = require('tailwindcss/colors')
 module.exports = {
   darkMode: 'class',
   content: ['./src/**/*.{html,js,ts,tsx,jsx}'],
   theme: {
+    colors: {
+      transparent: 'transparent',
+      current: 'currentColor',
+      black: colors.black,
+      white: colors.white,
+      gray: colors.slate,
+      green: colors.green,
+      red: colors.red,
+      blue: colors.blue,
+      purple: colors.purple,
+      yellow: colors.yellow,
+      pink: colors.pink,
+    },
     extend: {
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
