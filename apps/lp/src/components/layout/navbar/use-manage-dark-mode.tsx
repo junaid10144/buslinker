@@ -1,7 +1,10 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
 
+const isWindowsDefined = typeof window !== 'undefined'
+
 export const useManageDarkMode = () => {
   const [isDarkMode, setIsDarkMode] = useState<boolean>(() => {
+    if (!isWindowsDefined) return false
     return (
       localStorage.getItem('darkMode') === 'true' ||
       (!('darkMode' in localStorage) &&
