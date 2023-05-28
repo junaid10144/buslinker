@@ -1,11 +1,14 @@
 import React from 'react'
 import { Text } from 'components'
 import moment from 'moment'
+import { RequestedTripType } from '.'
 
-const GuestsIndicator = () => {
-  const adults = 2
-  const children = 2
-  const infants = 0
+const GuestsIndicator = ({
+  requestedTrip,
+}: {
+  requestedTrip: RequestedTripType
+}) => {
+  const { adults, children, infants } = requestedTrip.guests
 
   const text = [
     adults + ' Adults',
@@ -22,10 +25,16 @@ const GuestsIndicator = () => {
   )
 }
 
-export const Header = () => {
-  const location = 'New York - Los Angeles'
-  const date = new Date()
-  const formattedDate = moment(date).format('LL')
+export const Header = ({
+  requestedTrip,
+}: {
+  requestedTrip: RequestedTripType
+}) => {
+  const location = `${requestedTrip.cityFromSLug} - ${requestedTrip.cityToSlug}`
+  const formattedDate = moment(
+    requestedTrip.departureDate,
+    'DD-MM-YYYY'
+  ).format('LL')
 
   return (
     <div className="text-center">
@@ -33,7 +42,7 @@ export const Header = () => {
       <div className="mt-4">
         <Text variant="button">{location}</Text>
         <Text>{formattedDate}</Text>
-        <GuestsIndicator />
+        <GuestsIndicator requestedTrip={requestedTrip} />
       </div>
     </div>
   )
