@@ -1,21 +1,19 @@
 import express from "express"
 import swaggerJsdoc from "swagger-jsdoc"
 import swaggerUi from "swagger-ui-express"
-import swaggerDefinition from "../../docs/swaggerDef"
+import { swaggerDef } from "../../docs/swaggerDef"
 
-const router = express.Router()
+export const docsRoute = express.Router()
 
 const specs = swaggerJsdoc({
-  swaggerDefinition,
+  swaggerDef,
   apis: ["src/docs/*.yml", "src/routes/v1/*.js"],
 })
 
-router.use("/", swaggerUi.serve)
-router.get(
+swaggerJsdoc.use("/", swaggerUi.serve)
+swaggerJsdoc.get(
   "/",
   swaggerUi.setup(specs, {
     explorer: true,
   })
 )
-
-module.exports = router
