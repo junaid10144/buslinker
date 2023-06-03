@@ -1,10 +1,10 @@
-import { Strategy: JwtStrategy, ExtractJwt } from "passport-jwt"
-import config from "./config"
+import { JwtStrategy, ExtractJwt } from "passport-jwt"
+import { env } from "./env"
 import { tokenTypes } from "./tokens"
-import { User } from "../models"
+//import { Prisma } from "@prisma/client"
 
 const jwtOptions = {
-  secretOrKey: config.jwt.secret,
+  secretOrKey: env.jwt.secret,
   jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
 }
 
@@ -13,7 +13,8 @@ const jwtVerify = async (payload, done) => {
     if (payload.type !== tokenTypes.ACCESS) {
       throw new Error("Invalid token type")
     }
-    const user = await User.findById(payload.sub)
+
+    const user = null //await Prisma.user.findById(payload.sub)
     if (!user) {
       return done(null, false)
     }
@@ -25,6 +26,6 @@ const jwtVerify = async (payload, done) => {
 
 const jwtStrategy = new JwtStrategy(jwtOptions, jwtVerify)
 
-module.exports = {
+export const passportConfig = {
   jwtStrategy,
 }

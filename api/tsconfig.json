@@ -4,6 +4,7 @@
     "outDir": "dist",
     "strict": false,
     "lib": ["ESNext"],
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "resolveJsonModule": true //for solving this error => Cannot find module '../../package.json'. Consider using '--resolveJsonModule' to import module with '.json' extension.
   }
 }

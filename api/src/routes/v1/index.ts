@@ -2,7 +2,7 @@ import express from "express"
 import authRoute from "./auth.route"
 import userRoute from "./user.route"
 import docsRoute from "./docs.route"
-import config from "../../config/config"
+import config from "../../config/env"
 
 const router = express.Router()
 
@@ -36,4 +36,4 @@ if (config.env === "development") {
   })
 }
 
-module.exports = router
+export { router }
