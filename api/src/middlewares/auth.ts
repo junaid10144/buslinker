@@ -1,7 +1,7 @@
-const passport = require("passport")
-const httpStatus = require("http-status")
-const ApiError = require("../utils/ApiError")
-const { roleRights } = require("../config/roles")
+import ApiError from "../utils/ApiError"
+import { roleRights } from "../config/roles"
+import passport from "passport"
+import httpStatus from "http-status"
 
 const verifyCallback =
   (req, resolve, reject, requiredRights) => async (err, user, info) => {
