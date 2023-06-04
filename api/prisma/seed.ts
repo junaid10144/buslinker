@@ -4,8 +4,8 @@ async function main() {
   const city = await prisma.city.createMany({
     data: [
       {
-        name: "New York",
-        slug: "new-york",
+        name: "Karachi",
+        slug: "karachi",
       },
       {
         name: "Los Angeles",
