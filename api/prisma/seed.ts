@@ -1,21 +1,9 @@
+import { cities } from "./seed-data/cities"
 import { PrismaClient } from "@prisma/client"
 const prisma = new PrismaClient()
 async function main() {
   const city = await prisma.city.createMany({
-    data: [
-      {
-        name: "Karachi",
-        slug: "karachi",
-      },
-      {
-        name: "Los Angeles",
-        slug: "los-angeles",
-      },
-      {
-        name: "Chicago",
-        slug: "chicago",
-      },
-    ],
+    data: cities,
   })
 
   console.log({ city })
