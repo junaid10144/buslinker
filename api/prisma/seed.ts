@@ -9,8 +9,14 @@ async function main() {
 
   const cities = await prisma.city.findMany()
 
+  await prisma.bus.createMany({
+    data: seedData.bus,
+  })
+
+  const buses = await prisma.bus.findMany()
+
   const trips = await prisma.trip.createMany({
-    data: seedData.getFakeTrips({ cities }),
+    data: seedData.getFakeTrips({ cities, buses }),
   })
 
   console.log({ cities, trips })
