@@ -1,7 +1,7 @@
 import { Button, Card, CardContent, Text } from 'components'
 import moment from 'moment'
 import React from 'react'
-import { TripType, trips } from './data'
+import { TripType } from './data'
 import { getPrice } from 'utils'
 
 const ActionButton = () => <Button>ADD</Button>
@@ -42,9 +42,7 @@ const TripItem = ({ trip }: { trip: TripType }) => {
               {moment(trip.arrival).format('hh:mm DD/MM')}
             </Text>
             <Text>{trip.cityTo.name}</Text>
-            <div>
-              <Text>{`${trip.distance} km`}</Text>
-            </div>
+            <div>{!!trip.distance && <Text>{`${trip.distance} km`}</Text>}</div>
           </div>
         </div>
         <Actions priceText={priceText} />
@@ -52,7 +50,7 @@ const TripItem = ({ trip }: { trip: TripType }) => {
     </Card>
   )
 }
-export const Trips = () => (
+export const Trips = ({ trips }: { trips: TripType[] }) => (
   <div className="space-y-4 mt-14">
     {trips.map((trip) => (
       <TripItem key={trip.id} trip={trip} />
