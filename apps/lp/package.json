@@ -1,9 +1,9 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "buslinker-frontend",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "description": "BusLinker is a user-friendly bus ticket booking application that allows passengers to easily search, book, and manage their bus journeys. With a seamless and intuitive interface, BusLinker simplifies the process of finding and reserving bus tickets, providing users with a convenient and hassle-free travel experience. Explore various bus routes, check seat availability, and securely make online payments within the BusLinker app. Join millions of satisfied travelers who have chosen BusLinker for their bus travel needs and embark on your next adventure with ease.",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Junaid Saleem <junaid.saleem.10144@gmail.com>",
   "dependencies": {
     "@react-icons/all-files": "^4.1.0",
     "gatsby": "^5.9.0",
@@ -30,7 +30,12 @@
     "tsconfig-paths-webpack-plugin": "^4.0.1"
   },
   "keywords": [
-    "gatsby"
+    "gatsby",
+    "busLinker",
+    "bus",
+    "ticket",
+    "booking",
+    "frontend"
   ],
   "license": "0BSD",
   "scripts": {
@@ -44,9 +49,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
+    "url": "https://github.com/junaidsaleem10144/buslinker"
   },
   "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
+    "url": "https://github.com/junaidsaleem10144/buslinker/issues"
   }
 }
