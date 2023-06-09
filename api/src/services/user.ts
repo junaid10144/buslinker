@@ -22,7 +22,7 @@ const getByEmail = async (email: string): Promise<User> => {
 }
 
 const updateById = async (
-  userId: ObjectId,
+  userId: number,
   updateBody: object
 ): Promise<User> => {
   const user = await getById(userId)
@@ -37,7 +37,7 @@ const updateById = async (
   return user
 }
 
-const deleteById = async (userId: ObjectId): Promise<User> => {
+const deleteById = async (userId: number): Promise<User> => {
   const user = await getById(userId)
   if (!user) {
     throw new ApiError(httpStatus.NOT_FOUND, "User not found")
