@@ -17,6 +17,7 @@ export type RequestedTripType = {
   }
 }
 const getUrlParams = () => {
+  if (typeof window === 'undefined') return null
   return new URLSearchParams(window.location.search)
 }
 
