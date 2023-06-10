@@ -14,7 +14,7 @@ const GuestsIndicator = ({
   const text = [
     adults + ' Adults',
     children + ' Children',
-    infants + ' Infacts',
+    infants + ' Infants',
   ]
     .filter((i) => +i[0])
     .join(' | ')
@@ -37,14 +37,14 @@ export const Header = ({
   ).format('LL')
 
   const loadCities = async () => {
-    if (!requestedTrip.cityFromSLug || !requestedTrip.cityToSlug) return null
+    if (!requestedTrip.cityFromSlug || !requestedTrip.cityToSlug) return null
 
     const cities = await data.city.getSome([
-      requestedTrip.cityFromSLug,
+      requestedTrip.cityFromSlug,
       requestedTrip.cityToSlug,
     ])
 
-    const from = cities.find((city) => city.slug === requestedTrip.cityFromSLug)
+    const from = cities.find((city) => city.slug === requestedTrip.cityFromSlug)
     const to = cities.find((city) => city.slug === requestedTrip.cityToSlug)
 
     return { from, to }

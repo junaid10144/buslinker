@@ -1,8 +1,8 @@
-import express from "express"
-import { auth, validate } from "../../middlewares"
-import { userValidation } from "../../validations"
-import { userController } from "../../controllers"
-
+const express = require("express")
+import { auth } from "../../middlewares"
+import { validate } from "../../middlewares"
+import { userValidation } from "../../validations/user"
+import { userController } from "../../controllers/user"
 const router = express.Router()
 
 router

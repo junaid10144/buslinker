@@ -3,7 +3,7 @@ import express from "express"
 // import userRoute from "./user.route"
 import { cityRoute } from "./city"
 import { tripRoute } from "./trip"
-// import { docsRoute } from "./docs"
+// import { docsRouter } from "./docs"
 import { env } from "../../config"
 
 const router = express.Router()
@@ -31,7 +31,7 @@ const devRoutes = [
   // routes available only in development mode
   // {
   //   path: "/docs",
-  //   route: docsRoute,
+  //   route: docsRouter,
   // },
 ]
 

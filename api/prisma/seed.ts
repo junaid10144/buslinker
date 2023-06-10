@@ -4,7 +4,7 @@ const prisma = new PrismaClient()
 
 async function main() {
   await prisma.city.createMany({
-    data: seedData.cities,
+    data: seedData.cities.slice(0, 12),
   })
 
   const cities = await prisma.city.findMany()
@@ -22,11 +22,10 @@ async function main() {
   console.log({ cities, trips })
 }
 main()
-  .then(async () => {
-    await prisma.$disconnect()
-  })
-  .catch(async (e) => {
+  .catch((e) => {
     console.error(e)
-    await prisma.$disconnect()
     process.exit(1)
+  })
+  .finally(async () => {
+    await prisma.$disconnect()
   })

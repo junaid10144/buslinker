@@ -40,11 +40,11 @@ const navItems: {
   right: [
     {
       title: 'Account',
-      link: '/#account',
+      link: '/account',
     },
     {
       title: 'Log Out',
-      link: '/#logout',
+      link: '/logout',
     },
   ],
 }

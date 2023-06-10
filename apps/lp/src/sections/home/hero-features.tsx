@@ -4,10 +4,10 @@ import { Text } from 'components'
 const heroFeatures = [
   {
     title: 'Book Easy',
-    description: 'Tickets with QR code',
+    description: 'Tickets with QR Code',
   },
   {
-    title: 'Discount',
+    title: 'Discounts',
     description: 'For those who create an account',
   },
   {

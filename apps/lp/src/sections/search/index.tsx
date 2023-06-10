@@ -7,7 +7,7 @@ import { Trips } from './trips'
 import { data, useLoadResource } from 'data'
 
 export type RequestedTripType = {
-  cityFromSLug?: string
+  cityFromSlug?: string
   cityToSlug?: string
   departureDate?: string
   guests: {
@@ -32,7 +32,7 @@ export const SearchSection = () => {
     if (!params) return
 
     setRequestedTrip({
-      cityFromSLug: params.get('from') || undefined,
+      cityFromSlug: params.get('from') || undefined,
       cityToSlug: params.get('to') || undefined,
       departureDate: params.get('departureDate') || undefined,
       guests: {
@@ -46,13 +46,13 @@ export const SearchSection = () => {
   const loadTrips = async () => {
     if (
       !requestedTrip ||
-      !requestedTrip.cityFromSLug ||
+      !requestedTrip.cityFromSlug ||
       !requestedTrip.cityToSlug ||
       !requestedTrip.departureDate
     )
       return null
     const trips = await data.trip.getMany({
-      from: requestedTrip.cityFromSLug,
+      from: requestedTrip.cityFromSlug,
       to: requestedTrip.cityToSlug,
       departureDate: requestedTrip.departureDate,
     })

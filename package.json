@@ -1,9 +1,11 @@
 {
   "name": "@bus/root",
   "private": true,
-  "workspaces": [
-    "apps/*"
-  ],
+  "workspaces": {
+    "packages": [
+      "apps/*"
+    ]
+  },
   "devDependencies": {
     "lerna": "^6.6.1"
   }
