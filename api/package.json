@@ -33,8 +33,6 @@
   },
   "keywords": [
     "node",
-    "boilerplate",
-    "generator",
     "express",
     "rest",
     "api",

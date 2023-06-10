@@ -9,10 +9,10 @@
  */
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
-    siteUrl: `https://gatsbystarterdefaultsource.gatsbyjs.io/`,
+    title: `BusLinker`,
+    description: `BusLinker is a user-friendly bus ticket booking application that allows passengers to easily search, book, and manage their bus journeys.`,
+    author: `@junaidsaleem10144`,
+    siteUrl: `https://buslinker.netlify.app/`,
   },
   plugins: [
     `gatsby-plugin-image`,
@@ -29,8 +29,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
+        name: `BusLinker`,
+        short_name: `BusLinker`,
         start_url: `/`,
         background_color: `#663399`,
         // This will impact how browsers show your PWA/website
