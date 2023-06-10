@@ -66,6 +66,7 @@
     "passport-jwt": "^4.0.1",
     "pm2": "^5.3.0",
     "prisma": "^4.14.1",
+    "short-unique-id": "^4.4.4",
     "ts-node": "^10.9.1",
     "typescript": "^5.0.4",
     "validator": "^13.9.0",
