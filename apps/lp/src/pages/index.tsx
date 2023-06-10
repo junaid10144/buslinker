@@ -100,7 +100,7 @@ const sections = {
 
 const IndexPage = () => (
   <Layout>
-    <Seo title="Bus" />
+    <Seo title="Explore & Reserve Bus Tickets" />
     <HeroSection />
     <MidSection section={sections.features} />
     <MidSection section={sections.features2} />
