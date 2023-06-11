@@ -45,10 +45,12 @@ export const useTripsAction = ({ trip }: { trip: TripType }) => {
     data.reservation
       .deleteReservedTrip(reservation, reservedTrip)
       .then((reservation) => {
-        // if (!reservation?.reservedTrips?.length) {
-        //   data.reservation.deleteOne(reservation).then(setReservation)
-        //   return
-        // }
+        if (!reservation?.reservedTrips?.length) {
+          data.reservation.deleteOne(reservation).then(() => {
+            setReservation(null)
+          })
+          return
+        }
         setReservation(reservation)
       })
   }
