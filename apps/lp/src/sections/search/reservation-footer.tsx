@@ -1,26 +1,26 @@
-import { Button, Text } from 'components'
 import React from 'react'
-import { ReservationType } from 'store'
-import { getTotalPrice } from 'utils'
+import { Button, Text } from 'components'
+import { ReservationType, useStore } from 'store'
+import { getFormattedTimeLeft, getTotalPrice } from 'utils'
 
 const TimeLeftText = () => {
-  const reservationTimeLeft = 1000
-
+  const reservationTimeLeft = useStore((store) => store.reservationTimeLeft)
+  if (!reservationTimeLeft) return null
   return (
     <Text className="text-right" color="red">
-      <span>Time Left to confirm your order:</span>
-      <span>{reservationTimeLeft}</span>
+      <span>Time left to confirm your order: </span>
+      <span>{getFormattedTimeLeft(reservationTimeLeft)}</span>
     </Text>
   )
 }
 
 const TotalPrice = ({ reservation }: { reservation: ReservationType }) => (
   <div className="text-right">
-    <Text>{`Total: ${getTotalPrice(reservation)}`}</Text>
+    <Text>{`Total: $${getTotalPrice(reservation)}`}</Text>
   </div>
 )
 
-export const ConfirmButton = () => {
+const ConfirmButton = () => {
   const onClick = () => {
     // confirm order
   }
