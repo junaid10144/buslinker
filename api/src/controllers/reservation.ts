@@ -8,7 +8,7 @@ const create = catchAsync(async (req, res) => {
 
 const addReservedTrip = catchAsync(async (req, res) => {
   const token = req.params.token
-  const result = await reservationService.addReservedTrip(token,req.body)
+  const result = await reservationService.addReservedTrip(token, req.body)
   res.send(result)
 })
 

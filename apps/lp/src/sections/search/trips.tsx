@@ -1,11 +1,47 @@
 import { Button, Card, CardContent, Text } from 'components'
 import moment from 'moment'
 import React from 'react'
-import { TripType } from './data'
+import { data } from 'data'
 import { getPrice } from 'utils'
+import { useStore, TripType, ReservationType } from 'store'
 
-const ActionButton = () => <Button>ADD</Button>
-const Actions = ({ priceText }: { priceText: string }) => {
+const ActionButton = ({ trip }: { trip: TripType }) => {
+  const reservation = useStore((store) => store.reservation)
+  const isReserved =
+    !!reservation?.reservedTrips.length &&
+    !!reservation.reservedTrips.find(
+      (reservedTrip) => reservedTrip.trip.id === trip.id
+    )
+
+  const addReservedTrip = async (
+    reservation: ReservationType,
+    trip: TripType
+  ) => {
+    await data.reservation.addReservedTrip(reservation, trip).then((data) => {
+      useStore.setState({ reservation: data })
+    })
+  }
+
+  const onClick = async () => {
+    if (reservation) {
+      addReservedTrip(reservation, trip)
+      return
+    }
+
+    const newReservation = await data.reservation.create()
+
+    addReservedTrip(newReservation, trip)
+  }
+
+  return <Button onClick={onClick}>{isReserved ? 'Remove' : 'Add'}</Button>
+}
+const Actions = ({
+  trip,
+  priceText,
+}: {
+  trip: TripType
+  priceText: string
+}) => {
   return (
     <div className="flex flex-col items-end justify-end gap-2">
       <div className="flex flex-col items-stretch justify-between flex-1">
@@ -17,7 +53,7 @@ const Actions = ({ priceText }: { priceText: string }) => {
             {priceText}
           </Text>
         </div>
-        <ActionButton />
+        <ActionButton trip={trip} />
       </div>
     </div>
   )
@@ -45,11 +81,12 @@ const TripItem = ({ trip }: { trip: TripType }) => {
             <div>{!!trip.distance && <Text>{`${trip.distance} km`}</Text>}</div>
           </div>
         </div>
-        <Actions priceText={priceText} />
+        <Actions trip={trip} priceText={priceText} />
       </CardContent>
     </Card>
   )
 }
+
 export const Trips = ({ trips }: { trips: TripType[] }) => (
   <div className="space-y-4 mt-14">
     {trips.map((trip) => (
