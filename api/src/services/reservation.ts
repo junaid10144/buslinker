@@ -30,18 +30,27 @@ const addReservedTrip = async (token: string, body) => {
   const reservation = await prisma.reservation.update({
     include,
     data: {
-      reservedTrips: {
-        create: {
-          tripId: body.tripId,
-        },
-      },
+      reservedTrips: { create: { tripId: body.tripId } },
     },
     where: { token },
   })
   return reservation
 }
 
+const deleteReservedTrip = async (token: string, reservedTripId: number) => {
+  const result = await prisma.reservation.update({
+    include,
+    data: {
+      reservedTrips: { delete: { id: reservedTripId } },
+    },
+    where: { token },
+  })
+
+  return result
+}
+
 export const reservationService = {
   create,
   addReservedTrip,
+  deleteReservedTrip,
 }

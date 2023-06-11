@@ -9,6 +9,14 @@ const addReservedTrip = {
   }),
 }
 
+const deleteReservedTrip = {
+  params: Joi.object().keys({
+    token: Joi.string().required(),
+    reservedTripId: Joi.string().required(),
+  }),
+}
+
 export const reservationValidation = {
   addReservedTrip,
+  deleteReservedTrip,
 }
