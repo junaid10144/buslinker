@@ -1,7 +1,15 @@
-import { Card, CardContent, Text, CardHeading, CardTitle } from 'components'
+import {
+  Card,
+  CardContent,
+  Text,
+  CardHeading,
+  CardTitle,
+  CardFooter,
+} from 'components'
 import React from 'react'
 import { useStore } from 'store'
 import { ReservationContent } from './reservation-content'
+import { ReservationFooter } from './reservation-footer'
 
 export const ReservationBar = () => {
   const reservation = useStore((store) => store.reservation)
@@ -12,13 +20,16 @@ export const ReservationBar = () => {
       <CardHeading>
         <CardTitle>Reservation</CardTitle>
       </CardHeading>
-      <CardContent>
+      <CardContent className="max-h-[500px] overflow-y-auto">
         {hasReservedTrips ? (
           <ReservationContent reservation={reservation} />
         ) : (
           <Text color="gray-light">Please select a trip to proceed</Text>
         )}
       </CardContent>
+      {hasReservedTrips && <CardFooter>
+        <ReservationFooter reservation={reservation}/>
+        </CardFooter>}
     </Card>
   )
 }
