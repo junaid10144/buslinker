@@ -1,0 +1,72 @@
+{
+  "name": "@buslinker/frontend",
+  "private": true,
+  "description": "BusLinker is a user-friendly bus ticket booking application that allows passengers to easily search, book, and manage their bus journeys. With a seamless and intuitive interface, BusLinker simplifies the process of finding and reserving bus tickets, providing users with a convenient and hassle-free travel experience. Explore various bus routes, check seat availability, and securely make online payments within the BusLinker app. Join millions of satisfied travelers who have chosen BusLinker for their bus travel needs and embark on your next adventure with ease.",
+  "version": "0.1.0",
+  "author": "Junaid Saleem <junaid.saleem.10144@gmail.com>",
+  "dependencies": {
+    "@headlessui/react": "^1.6.0",
+    "@popperjs/core": "^2.11.5",
+    "@react-icons/all-files": "^4.1.0",
+    "formik": "^2.2.9",
+    "gatsby": "^4.13.1",
+    "gatsby-plugin-gatsby-cloud": "^4.13.0",
+    "gatsby-plugin-image": "^2.13.0",
+    "gatsby-plugin-manifest": "^4.13.0",
+    "gatsby-plugin-offline": "^5.13.0",
+    "gatsby-plugin-react-helmet": "^5.13.0",
+    "gatsby-plugin-sharp": "^4.13.0",
+    "gatsby-source-filesystem": "^4.13.0",
+    "gatsby-transformer-sharp": "^4.13.0",
+    "immer": "^9.0.12",
+    "moment": "^2.29.3",
+    "prop-types": "^15.8.1",
+    "react": "^17.0.1",
+    "react-booking-form": "^2.0.0-alpha.64",
+    "react-cool-inview": "^3.0.1",
+    "react-countup": "^6.2.0",
+    "react-dom": "^17.0.1",
+    "react-helmet": "^6.1.0",
+    "react-popper": "^2.3.0",
+    "react-toastify": "^9.0.1",
+    "usehooks-ts": "^2.5.2",
+    "yup": "^0.32.11",
+    "zustand": "^4.0.0-rc.1"
+  },
+  "devDependencies": {
+    "@tailwindcss/forms": "^0.5.0",
+    "autoprefixer": "^10.4.5",
+    "gatsby-plugin-postcss": "^5.12.1",
+    "postcss": "^8.4.12",
+    "prettier": "^2.6.2",
+    "tailwind-styled-components": "2.1.4",
+    "tailwindcss": "^3.0.24",
+    "tsconfig-paths-webpack-plugin": "^3.5.2",
+    "typescript": "^4.6.3"
+  },
+  "keywords": [
+    "gatsby",
+    "busLinker",
+    "bus",
+    "ticket",
+    "booking",
+    "frontend"
+  ],
+  "license": "0BSD",
+  "scripts": {
+    "build": "gatsby build",
+    "dev": "gatsby develop",
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
+    "start": "gatsby develop",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean",
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/junaidsaleem10144/buslinker"
+  },
+  "bugs": {
+    "url": "https://github.com/junaidsaleem10144/buslinker/issues"
+  }
+}
