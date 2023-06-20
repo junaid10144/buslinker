@@ -4,7 +4,7 @@ const prisma = new PrismaClient()
 
 async function main() {
   await prisma.city.createMany({
-    data: seedData.cities,
+    data: seedData.cities.slice(0, 12),
   })
 
   const cities = await prisma.city.findMany()
