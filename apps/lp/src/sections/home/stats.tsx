@@ -17,7 +17,7 @@ const stats = [
     color: "text-blue-500",
   },
   {
-    title: "Stations around the U.S.",
+    title: "Stations around the Pakistan",
     value: 1_325,
     icon: RiVipFill,
     color: "text-green-500",

@@ -49,7 +49,7 @@ const sections = {
         icon: BiNetworkChart,
       },
       {
-        title: "Largest Network in the U.S.",
+        title: "Largest Network in the Pakistan",
         description:
           "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
         icon: FaLeaf,
@@ -89,7 +89,7 @@ const sections = {
         icon: BiNetworkChart,
       },
       {
-        title: "Largest Network in the U.S.",
+        title: "Largest Network in the Pakistan.",
         description:
           "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
         icon: FaLeaf,

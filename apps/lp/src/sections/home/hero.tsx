@@ -4,6 +4,7 @@ import { Section, Text, Button } from "@buslinker/ui"
 import { HeroFeatures } from "./hero-features"
 import { BookingForm } from "./booking-form"
 import { InView } from "react-cool-inview"
+import { Link } from "gatsby"
 
 const Container = tw.div`mt-16 flex justify-between items-center gap-x-8`
 const Column = tw.div`md:w-1/2`
@@ -46,11 +47,13 @@ const TextSection = ({ inView }: any) => (
         className={`${inView ? "" : "opacity-0"}`}
       >
         {
-          "This is a private bus company that takes you from point A to point B within the Continental US."
+          "BusLinker is a private bus company that takes you from point A to point B within the Continental Pakistan."
         }
       </DescriptionText>
       <ButtonContainer className={`${inView ? "" : "opacity-0"}`}>
+        <Link to="register">
         <Button>{"Create Account"}</Button>
+        </Link>
       </ButtonContainer>
     </div>
     <div className="mt-10 md:mt-32">
