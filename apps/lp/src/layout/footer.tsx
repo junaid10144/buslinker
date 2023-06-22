@@ -76,7 +76,7 @@ const Column = ({ title, items }) => (
 
 const CopyrightText = () => (
   <Text color="none" className="text-gray-400" variant="subtitle">
-    &copy; {new Date().getFullYear()} Bus Booking Website Developed By Junaid. All rights
+    &copy; {new Date().getFullYear()} Bus Booking App Developed By Junaid. All rights
     reserved.
   </Text>
 )
