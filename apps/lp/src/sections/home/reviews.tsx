@@ -19,28 +19,28 @@ type ReviewType = {
 
 const reviews: ReviewType[] = [
   {
-    name: "Julie M.",
+    name: "Zaryab A.",
     timeAgo: "2 days ago",
     content:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque dolore ipsum mollitia incidunt voluptas hic sed aspernatur provident, facilis, assumenda odit commodi nam repellat et eius officiis laborum. Cum, deleniti!",
-    imageUrl: "https://randomuser.me/api/portraits/women/17.jpg",
-    starsCount: 5,
+    imageUrl: "https://randomuser.me/api/portraits/men/17.jpg",
+    starsCount: 3,
   },
   {
-    name: "Kirk H.",
+    name: "Junaid S.",
     timeAgo: "5 days ago",
     content:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque dolore ipsum mollitia incidunt voluptas hic sed aspernatur provident, facilis, assumenda odit commodi nam repellat et eius officiis laborum. Cum, deleniti!",
-    imageUrl: "https://randomuser.me/api/portraits/men/0.jpg",
+    imageUrl: "https://randomuser.me/api/portraits/men/9.jpg",
     starsCount: 5,
   },
   {
-    name: "Joe B.",
+    name: "Surfraz A.",
     timeAgo: "7 days ago",
     content:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque dolore ipsum mollitia incidunt voluptas hic sed aspernatur provident, facilis, assumenda odit commodi nam repellat et eius officiis laborum. Cum, deleniti!",
-    imageUrl: "https://randomuser.me/api/portraits/women/24.jpg",
-    starsCount: 5,
+    imageUrl: "https://randomuser.me/api/portraits/men/24.jpg",
+    starsCount: 4,
   },
 ]
 

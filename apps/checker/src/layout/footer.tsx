@@ -42,17 +42,17 @@ const footerItems = {
 const socialMediaLinks = [
   {
     name: "Facebook",
-    link: "https://www.facebook.com/bus.technologies",
+    link: "https://www.linkedin.com/in/junaid-saleem-10144alj",
     icon: FaFacebook,
   },
   {
     name: "Instagram",
-    link: "https://www.instagram.com/bus.technologies",
+    link: "https://www.linkedin.com/in/junaid-saleem-10144alj/",
     icon: FaInstagram,
   },
   {
     name: "Twitter",
-    link: "https://www.twitter.com/bus.technologies",
+    link: "https://www.linkedin.com/in/junaid-saleem-10144alj/",
     icon: FaTwitter,
   },
 ]
@@ -76,7 +76,7 @@ const Column = ({ title, items }) => (
 
 const CopyrightText = () => (
   <Text color="none" className="text-gray-400" variant="subtitle">
-    &copy; {new Date().getFullYear()} Bus Booking Website Tutorial. All rights
+    &copy; {new Date().getFullYear()} Bus Booking Website Developed By Junaid. All rights
     reserved.
   </Text>
 )

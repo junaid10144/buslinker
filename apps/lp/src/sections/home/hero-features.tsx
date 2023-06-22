@@ -12,7 +12,7 @@ const heroFeatures = [
   },
   {
     title: "30+",
-    description: "Cities around the U.S.",
+    description: "Cities around the Pakistan",
   },
 ]
 
