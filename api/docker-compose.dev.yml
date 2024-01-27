@@ -1,6 +1,11 @@
-version: '3'
+version: "3"
 
 services:
   node-app:
-    container_name: node-app-dev
-    command: yarn dev -L
+    # container_name: node-app-dev
+    ports:
+      - 5432:5432
+    volumes:
+      - ./:/usr/src/node-app
+      - /usr/src/node-app/node_modules
+    command: /bin/sh -c "yarn db:init && yarn dev -L"

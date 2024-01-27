@@ -1,32 +1,58 @@
-version: '3'
+version: "3"
 
 services:
+  nginx:
+    image: nginx:stable-alpine
+    ports:
+      - "3000:80"
+    volumes:
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf:ro
+    networks:
+      - buslinker-network
+
   node-app:
     build: .
     image: node-app
-    environment:
-      - MONGODB_URL=mongodb://mongodb:27017/node-boilerplate
-    ports:
-      - '3000:3000'
-    depends_on:
-      - mongodb
+    env_file:
+      - ./.env
+    # ports:
+    # - "${PORT}:${PORT}"
     volumes:
       - .:/usr/src/node-app
     networks:
-      - node-network
+      - buslinker-network
+    # depends_on:
+    #   - postgres
+  
+#   postgres:
+#     image: postgres
+#     container_name: postgreSQL_container
+#     volumes:
+#       - postgresDB-data:/var/lib/postgresql/data
+#     environment:
+#       - POSTGRES_PASSWORD=Junaid*10144
+#       - POSTGRES_USER=junaid
+#       - POSTGRES_DB=BusLinker
+#     networks:
+#       - buslinker-network
 
-  mongodb:
-    image: mongo:4.2.1-bionic
-    ports:
-      - '27017:27017'
-    volumes:
-      - dbdata:/data/db
-    networks:
-      - node-network
-
-volumes:
-  dbdata:
+#   pgadmin:
+#     image: dpage/pgadmin4
+#     container_name: pgadmin4_container
+#     ports:
+#       - "8888:80"
+#     volumes:
+#       - pgadmin-data:/var/lib/pgadmin
+#     environment:
+#       PGADMIN_DEFAULT_EMAIL: junaid.saleem.10144@gmail.com
+#       PGADMIN_DEFAULT_PASSWORD: Junaid*10144
+#     networks:
+#       - buslinker-network
 
 networks:
-  node-network:
+  buslinker-network:
     driver: bridge
+
+# volumes:
+#   postgresDB-data:
+#   pgadmin-data:

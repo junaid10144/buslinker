@@ -1,6 +1,10 @@
 version: '3'
 
 services:
+  nginx:
+    ports:
+      - "80:80"
   node-app:
     container_name: node-app-prod
-    command: yarn start
+    # command: /bin/sh -c "rm -rf node_modules yarn.lock && yarn install && yarn build && yarn start"
+    command: /bin/sh -c "yarn install && yarn build && yarn start"

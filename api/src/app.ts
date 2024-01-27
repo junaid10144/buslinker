@@ -13,6 +13,21 @@ import { ApiError } from "./utils"
 
 const app = express()
 
+app.enable("trust proxy");
+
+app.get("/api/",(req,res)=>{
+  console.log("Yeah i am running")
+  if (env.env === "test") {
+  res.send("<h2>Hello from test environment</h2>")
+  } else if (env.env === "production"){
+    res.send("<h2>Hello from production environment</h2>")
+  } else if (env.env === "development"){
+    res.send("<h2>Hello from development, environment </h2>")
+  } else {
+    res.send(`<h3>Hello, Hi There here is your current environment = ${env.env}</h3>`)
+  }
+})
+
 if (env.env !== "test") {
   app.use(morganConfig.successHandler)
   app.use(morganConfig.errorHandler)
